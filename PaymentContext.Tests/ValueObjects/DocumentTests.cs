@@ -1,3 +1,6 @@
+using PaymentContext.Domain.Enums;
+using PaymentContext.Domain.ValueObjects;
+
 namespace PaymentContext.Tests;
 
 [TestClass]
