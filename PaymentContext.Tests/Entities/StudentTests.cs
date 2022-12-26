@@ -51,7 +51,6 @@ public class StudentTests
         var payment = new PayPalPayment("12345678", DateTime.Now, DateTime.Now.AddDays(5), 10, 10, "WAYNE CORP", _document, _address, _email);
         subscription.AddPayment(payment);
         _student.AddSubscription(subscription);
-        _student.AddSubscription(subscription);
 
         Assert.IsTrue(_student.Valid);
     }
