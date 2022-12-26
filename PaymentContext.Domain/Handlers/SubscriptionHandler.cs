@@ -2,7 +2,7 @@ using Flunt.Notifications;
 using PaymentContext.Domain.Commands;
 using PaymentContext.Domain.Entities;
 using PaymentContext.Domain.Enums;
-using PaymentContext.Domain.Reposiries;
+using PaymentContext.Domain.Repositories;
 using PaymentContext.Domain.Services;
 using PaymentContext.Domain.ValueObjects;
 using PaymentContext.Shared.Commands;
@@ -54,6 +54,10 @@ namespace PaymentContext.Domain.Handlers
 
             // Agrupar as Validações
             AddNotifications(name, document, email, address, student, subscription, payment);
+
+            //Checar as notificações
+            if (Invalid)
+                return new CommandResult(false, "Não foi possível realizar sua assinatura" );
 
             // Salvar as Informações
             _repository.CreateSubscription(student);
